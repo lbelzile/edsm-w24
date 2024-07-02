@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+/.quarto/
+
+projects/*.zip
+
+# knitr and caching stuff
+**/*_cache/*

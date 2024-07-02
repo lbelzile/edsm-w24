@@ -1,0 +1,178 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!slides/"
+  resources:
+    - "files/"
+    - "projects/"
+    - "slides/*.html"
+    - "slides/*.png"
+    - "slides/*.pdf"
+    - "slides/img/"
+    - "slides/libs/"
+    - "slides/css/"
+    - "slides/*_files/"
+
+# See https://quarto.org/docs/projects/code-execution.html#freeze
+execute:
+  freeze: auto  # Re-render only when source changes
+
+bibliography: files/bib/references.bib
+csl: files/bib/apa.csl
+
+website:
+  title: "Experimental Designs and Statistical Methods"
+  site-url: "https://edsm.rbind.io"
+  description: "Basic concepts for data collection planning; appropriate statistical analyses of these data and interpretation of results. Advantages and disadvantages of the various experimental designs."
+
+  navbar:
+    pinned: true
+    background: "#eab8e4"
+    right:
+      - syllabus.qmd
+      - schedule.qmd
+      - text: "Content"
+        file: content/index.qmd
+      - text: "Evaluations"
+        file: evaluations/index.qmd
+      - text: "Examples"
+        file: example/index.qmd
+      - text: "Notes"
+        href: "https://lbelzile.github.io/math80667a"
+      - icon: box
+        href: "https://lbelzile.github.io/hecedsm"
+        aria-label: Datasets
+
+  sidebar:
+    - title: "Content"
+      style: "docked"
+      search: false
+      foreground: "#eab8e4"
+      contents:
+        - section: "Overview"
+          contents:
+            - content/index.qmd
+        - section: "Course content"
+          contents:
+            - text: "1: Introduction"
+              file: content/01-content.qmd
+            - text: "2: Hypothesis testing"
+              file: content/02-content.qmd
+            - text: "3: One way ANOVA"
+              file: content/03-content.qmd
+            - text: "4: Contrasts and multiple testing"
+              file: content/04-content.qmd
+            - text: "5: Complete factorial designs"
+              file: content/05-content.qmd
+            - text: "6: Multiway factorial designs"
+              file: content/06-content.qmd
+            - text: "7: Designs to reduce the error"
+              file: content/07-content.qmd
+            - text: "8: Effect sizes and power"
+              file: content/08-content.qmd
+            - text: "9: Repeated measures"
+              file: content/09-content.qmd
+            - text: "10: Intro to mixed models"
+              file: content/10-content.qmd
+            - text: "11: Intro to causal inference"
+              file: content/11-content.qmd
+            - text: "12: Linear mediation and moderation"
+              file: content/12-content.qmd
+            - text: "13: Nonparametric tests and count data"
+              file: content/13-content.qmd
+    - title: "Evaluations"
+      style: "docked"
+      search: false
+      foreground: "#eab8e4"
+      contents:
+        - section: "Overview"
+          contents:
+            - evaluations/index.qmd
+            - text: "Weekly check-in"
+              file: evaluations/weekly-check-in.qmd
+            - evaluations/paper-review.qmd
+            - evaluations/final-exam.qmd
+        - section: "Problem sets"
+          contents:
+            - evaluations/01-problem-set.qmd
+            - evaluations/02-problem-set.qmd
+            - evaluations/03-problem-set.qmd
+            - evaluations/04-problem-set.qmd
+            - evaluations/05-problem-set.qmd
+            - evaluations/06-problem-set.qmd
+            - evaluations/07-problem-set.qmd
+            - evaluations/08-problem-set.qmd
+            - evaluations/09-problem-set.qmd
+            - evaluations/10-problem-set.qmd
+            - evaluations/11-problem-set.qmd
+            - evaluations/12-problem-set.qmd
+    - title: "Examples"
+      style: "docked"
+      search: false
+      foreground: "#eab8e4"
+      contents:
+        - section: "Overview"
+          contents:
+            - example/index.qmd
+        - section: "Programming"
+          contents:
+            - text: "**R** and RStudio"
+              file: example/installation.qmd
+            - text: "SPSS"
+              file: example/SPSS.qmd
+        - section: "Examples"
+          contents:
+            - text: "Introduction"
+              file: example/introduction.qmd
+         #   - text: "Null distributions"
+         #     file: example/02-hypothesis_testing.qmd
+            - text: "One-way ANOVA"
+              file: example/onewayanova.qmd
+            - text: "Two-way ANOVA"
+              file: example/twowayanova.qmd
+            - text: "Three-way ANOVA"
+              file: example/threewayanova.qmd
+            - text: "Analysis of covariance"
+              file: example/ancova.qmd
+            - text: "Effect size and power"
+              file: example/effectsizepower.qmd
+            - text: "Repeated measures ANOVA"
+              file: example/repeated.qmd
+            - text: "MANOVA"
+              file: example/manova.qmd
+            - text: "Linear mixed models"
+              file: example/mixedmodel.qmd
+            - text: "Linear causal mediation"
+              file: example/linearmediation.qmd
+            - text: "Nonparametric tests"
+              file: example/nonparametric.qmd
+            - text: "Count data"
+              file: example/counts.qmd
+
+  page-footer:
+    left: |
+      Content {{< fa brands creative-commons >}} {{< var course.copyright_year >}} by [{{< var instructor.name_no_title >}}]({{< var instructor.url >}}),
+      Website template by [Dr. Andrew Heiss](https://www.andrewheiss.com/) under [MIT License](https://mit-license.org/)<br>
+      All content licensed under a {{< fa brands creative-commons >}}
+      {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}
+      [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+    right: |
+      Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
+      [View the source at {{< fa brands github >}} GitHub]({{< var course.github >}})
+
+
+preview:
+  port: 6200
+  browser: true
+  watch-inputs: true
+  navigate: true
+
+format:
+  html:
+    theme:
+      - litera
+      - html/custom.scss
+    toc: true
+    highlight-style: github

@@ -1,0 +1,53 @@
+---
+title: Programming with SPSS
+type: docs
+editor_options: 
+  chunk_output_type: console
+---
+
+The databases for SPSS can be downloaded [through this link](/files/data/SPSS/MATH80667A_SPSS.zip).
+
+```{r slides-videos, echo=FALSE, include=FALSE}
+source(here::here("R", "youtube-playlist.R"))
+playlist_id <- "PLUB8VZzxA8Iv41lUAoTRNoat3oCVlFY62"
+slide_details <- tibble::tribble(
+~title, ~youtube_id,
+"Loading data and two-sample t-test", "zZI2Oq1a2Og",
+"Pairwise contrasts", "AT6RsM6-EdU",
+"One-way ANOVA", "7LLJWscsJrc",
+"One-way ANOVA (website example)", "dWKGp1khFeE",
+"Logical filters", "_So7PRQkHo4",
+"Contrasts and post-hoc comparisons", "jb2nftHBgsA",
+"Creating categorical variables with if-else statements", "8ba_EkcbIjw",
+"Two-way ANOVA", "7Z21rYuKMp0",
+"Two-way ANOVA (website example)", "lxVJAzaBHyY",
+"Three-way ANOVA (website example)", "_imWUkEQVo8",
+"ANCOVA (website example)", "OuNr1en9i6Y",
+"Repeated measures", "VPck9Z8m9hc",
+"Repeated measures (within-between design)", "1eVVFziSN_k",
+"MANOVA", "FsRcZRnoCj4",
+"Repeated measures using linear mixed model (Syntax)", "17-Ikn9MTpg",
+"Repeated measures using linear mixed model (Menus)", "niNZcLYdxvg",
+"Incomplete mixed design", "lx9WpPKXWlA",
+"Nested random effects","Ww2R1dNF6DM",
+"Linear mediation", "K17VesYVX9Y")
+```
+
+# Videos
+
+
+```{r show-youtube-list, echo=FALSE, results="asis"}
+youtube_list(slide_details, playlist_id, example = TRUE)
+```
+
+# Code
+
+- [One-way analysis of variance](/example/oneway.sps)
+- [Two-way analysis of variance](/example/twoway.sps)
+- [Three-way analysis of variance](/example/threeway.sps)
+- [Analysis of covariance](/example/ancova.sps)
+- [Repeated measures](/example/repeated.sps)
+- [MANOVA](/example/manova.sps)
+- [Repeated measures using mixed models](/example/repeatedwmixedmodels.sps)
+- [Mixed models](/content/MATH80667A-10-content.sps)
+- [Linear mediation](/example/linearmediation.sps)

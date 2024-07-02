@@ -1,0 +1,72 @@
+---
+title: "Complete factorial designs"
+---
+
+```{r}
+#| label: slides-videos
+#| echo: false
+#| include: false
+source(here::here("R", "slide-things.R"))
+source(here::here("R", "youtube-playlist.R"))
+
+playlist_id <- ""
+
+```
+
+
+## Content
+
+- Benefits of factorial designs
+- Interactions
+- Simple, marginal and interaction contrasts
+
+
+## Learning objectives
+
+At the end of the session, students should be capable of
+
+- listing the benefits of factorial designs
+- interpreting an interaction plot and being aware of it's limitation
+- interpreting model effects in sum-to-zero parametrization
+- reporting results from a two-way analysis of variance
+- determining whether or not simple or main effects are most suitable
+
+
+## Readings
+
+- {{< fa book >}}  [Chapter 4](https://stat.ethz.ch/~meier/teaching/anova/factorial-treatment-structure.html) of @Meier:2022
+-  {{< fa book >}}  [Chapter 5](https://lbelzile.github.io/math80667a/05-interactions_multiway.html) of the course notes
+
+
+## Complementary readings
+
+- {{< fa book >}}  Chapter 7 of @Maxwell.Delaney.Kelley:2017.
+- {{< fa book >}}  Chapters 10-13 of @Keppel/Wickens:2004.
+
+
+## Slides
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/05-slides")
+# slide_tabs(slide_details, "/slides/04-slides.html")
+```
+
+```{r show-slides-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(
+  url = "/slides/05-slides.html",
+  ratio = "16:9"
+)
+```
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of slide-specific commands.
+:::
+
+## Code
+
+
+- [R script](/content/MATH80667A-05-content.R)
+- [SPSS script](/content/MATH80667A-05-content.sps)
+
+
+## References

@@ -1,0 +1,59 @@
+---
+title: "Intro to mixed models"
+---
+
+## Content
+
+- Introduction to mixed models
+
+## Learning objectives
+
+At the end of the session, students should be capable of
+
+- determining the structure of an experimental design with random and fixed effects
+- correctly determining whether effects are crossed or nested
+- setting up a linear mixed model
+
+
+
+## Readings
+
+- <i class="fas fa-book"></i>[Chapter 6 Random and Mixed-Effects Models](https://stat.ethz.ch/~meier/teaching/anova/random-and-mixed-effects-models.html) of Lukas Meier's ANOVA and Mixed Models: A Short Intro Using R] 
+-  {{< fa book >}}  [Chapter 10](https://lbelzile.github.io/math80667a/10-mixed.html) of the course notes
+
+
+## Complementary readings
+
+
+- {{< fa book >}}  Chapters 10 and 15 of @Maxwell.Delaney.Kelley:2017.
+
+## Slides
+
+```{r}
+#| label: slides-videos
+#| echo: false
+#| include: false
+source(here::here("R", "slide-things.R"))
+```
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/10-slides")
+# slide_tabs(slide_details, "/slides/10-slides.html")
+```
+
+```{r show-slides-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(
+  url = "/slides/10-slides.html",
+  ratio = "16:9"
+)
+```
+
+
+## Code
+
+- [R script](/content/MATH80667A-10-content.R)
+- [SPSS script](/content/MATH80667A-10-content.sps)
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of slide-specific commands.
+:::

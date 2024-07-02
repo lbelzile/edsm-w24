@@ -1,0 +1,75 @@
+---
+title: "Multiway factorial designs"
+---
+
+
+
+
+## Content
+
+- Unbalanced designs
+- Multiway factorial designs
+
+
+## Learning objectives
+
+At the end of the session, students should be capable of
+
+- listing the benefits of balanced designs
+- correctly interpreting analysis of variance table
+- specifying and calculating custom contrasts in multiway factorial designs
+- correcting for multiple testing
+
+## Readings
+
+-  {{< fa book >}}  [Chapter 5](https://lbelzile.github.io/math80667a/05-interactions_multiway.html) of the course notes
+- {{< fa book-open-reader >}} [Two-way ANOVA example](/example/twowayanova.html)
+- {{< fa book-open-reader >}} [Three-way ANOVA example](/example/threewayanova.html)
+
+## Complementary readings
+
+- {{< fa book >}}  Chapter 8 of @Maxwell.Delaney.Kelley:2017.
+- {{< fa book >}}  Chapters 21-22 of @Keppel/Wickens:2004.
+
+## Videos
+
+
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/Rss0bSmONz0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+
+
+## Slides
+
+```{r}
+#| label: slides-videos
+#| echo: false
+#| include: false
+source(here::here("R", "slide-things.R"))
+```
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/06-slides")
+# slide_tabs(slide_details, "/slides/06-slides.html")
+```
+
+```{r show-slides-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(
+  url = "/slides/06-slides.html",
+  ratio = "16:9"
+)
+```
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of slide-specific commands.
+:::
+
+
+## Code
+
+
+- [R script](/content/MATH80667A-06-content.R)
+- [SPSS script](/content/MATH80667A-06-content.sps)
+
+

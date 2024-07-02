@@ -1,0 +1,67 @@
+---
+title: "Effect size and power"
+---
+
+## Content
+
+- Measures of effect size
+- Power calculations
+- Interplay between sample size, effect and power
+
+
+## Learning objectives
+
+At the end of the session, students should be capable of
+
+- correctly report effect size for common statistics in analysis of variance models
+- deduce the sample size necessary to replicate a study at a given power
+- explain the interplay between sample size, power and effect size.
+
+## Readings
+
+- {{< fa book >}}  [Chapter 7](https://lbelzile.github.io/math80667a/07-power_effect.html) of the course notes
+- {{< fa book >}}  [Chapter 8](https://lbelzile.github.io/math80667a/08-reproducibility_crisis.html) of the course notes
+- {{< fa book-open-reader >}} [Effect size and power example](/example/effectsizepower.html)
+
+## Complementary readings
+
+- {{< fa book >}} Chapters 3 (section *Power of the $F$ Test*) and 4 (section *Measures of Effects*) of @Maxwell.Delaney.Kelley:2017.
+- {{< fa file >}} @Lakens:2013
+- {{< fa file >}} @Steiger:2004
+- {{< fa file >}} @Kelley/Preacher:2012
+
+## Slides
+
+```{r}
+#| label: slides-videos
+#| echo: false
+#| include: false
+source(here::here("R", "slide-things.R"))
+```
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/08-slides")
+# slide_tabs(slide_details, "/slides/06-slides.html")
+```
+
+```{r show-slides-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(
+  url = "/slides/08-slides.html",
+  ratio = "16:9"
+)
+```
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of slide-specific commands.
+:::
+
+## Exercise
+
+- [Power calculations](/example/power.html)
+
+## Code
+
+
+- [R script](/content/MATH80667A-08-content.R)
+- [Exercise solution](/example/power.R)
+

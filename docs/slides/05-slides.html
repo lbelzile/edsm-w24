@@ -1,0 +1,3148 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Complete factorial designs</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Léo Belzile" />
+    <meta name="date" content="2024-04-14" />
+    <script src="libs/header-attrs-2.25/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <script src="libs/peerjs-1.3.1/peerjs.min.js"></script>
+    <script src="libs/tiny.toast-1.0.0/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast-0.2.6/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast-0.2.6/broadcast.js"></script>
+    <script src="libs/freezeframe-5.0.2/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe-0.0.1/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: center middle main-title section-title-1
+
+# Complete factorial designs
+
+.class-info[
+
+**Session 5**
+
+.light[MATH 80667A: Experimental Design and Statistical Methods &lt;br&gt;
+HEC Montréal
+]
+
+]
+
+---
+
+name: outline
+class: title title-inv-1
+
+# Outline
+
+
+
+.box-4.medium.sp-after-half[Factorial designs and interactions]
+
+
+
+.box-5.medium.sp-after-half[Tests for two-way ANOVA]
+
+
+
+---
+
+layout: false
+name: factorial-interaction
+class: center middle section-title section-title-4 animated fadeIn
+
+# Factorial designs and interactions
+
+---
+
+layout: true
+class: title title-4
+
+---
+
+# Complete factorial designs?
+
+.box-inv-4.sp-after[
+.large[**Factorial design**]&lt;br&gt; study with multiple factors (subgroups)
+]
+
+
+.box-inv-4[.large[**Complete**]
+&lt;br&gt;Gather observations for every subgroup]
+
+---
+
+# Motivating example
+
+.box-inv-4[**Response**:&lt;br&gt; retention of information &lt;br&gt;two hours after reading a story]
+
+.box-inv-4[**Population**:&lt;br&gt; children aged four]
+
+
+.box-inv-4.align-left[**experimental factor 1**:&lt;br&gt; ending (happy or sad)]
+
+.box-inv-4[**experimental factor 2**:&lt;br&gt; complexity (easy, average or hard).]
+
+
+
+
+---
+
+# Setup of design
+
+
+
+<div id="pafasszflq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#pafasszflq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pafasszflq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pafasszflq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pafasszflq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pafasszflq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pafasszflq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pafasszflq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pafasszflq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pafasszflq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pafasszflq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pafasszflq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pafasszflq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pafasszflq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pafasszflq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pafasszflq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pafasszflq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pafasszflq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pafasszflq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pafasszflq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pafasszflq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pafasszflq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pafasszflq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pafasszflq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pafasszflq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pafasszflq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pafasszflq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pafasszflq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pafasszflq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pafasszflq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pafasszflq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pafasszflq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pafasszflq .gt_left {
+  text-align: left;
+}
+
+#pafasszflq .gt_center {
+  text-align: center;
+}
+
+#pafasszflq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pafasszflq .gt_font_normal {
+  font-weight: normal;
+}
+
+#pafasszflq .gt_font_bold {
+  font-weight: bold;
+}
+
+#pafasszflq .gt_font_italic {
+  font-style: italic;
+}
+
+#pafasszflq .gt_super {
+  font-size: 65%;
+}
+
+#pafasszflq .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#pafasszflq .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#pafasszflq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pafasszflq .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#pafasszflq .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#pafasszflq .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;">
+  <colgroup>
+    <col/>
+    <col style="width:120px;"/>
+    <col style="width:120px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">complexity</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">happy</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">sad</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">complicated</td>
+<td class="gt_row gt_right" style="background-color: rgba(255,179,186,0.8); color: #000000;"><img src="data:image/png;base64,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" style="height:80px;"></td>
+<td class="gt_row gt_right" style="background-color: rgba(255,179,186,0.8); color: #000000;"><img src="data:image/png;base64,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" style="height:80px;"></td></tr>
+    <tr><td class="gt_row gt_left">average</td>
+<td class="gt_row gt_right" style="background-color: rgba(255,223,186,0.8); color: #000000;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAKc0lEQVR4nO2da3BVVxXHf0kIaTEIFq2tU0gICoj2oZXiA6tCKraY+qytLc3gR4cO2nGcqTqDWh9tR4cOfqiibWnBan2Nr7E6HSyOD5BWx7Yj7woU5KGS0BCgIQmJH9a55dy1980959x1zzlJ7n9mD3eHe/7nv88+dz/WXnttqKGGGmqooYZkqMtaQAScB8wFZgNzgs9twMuC9IrgX4BTwPHg35PAPmAnsAvYHXzuS1F7bOSxQiYAlwPtQVqIVIoFBoFngI1B+hNwxoh7TKEeefjrgV5gOKXUCzwMLA40jHvMAO4GDpJeJZRKB4G7Ak2ZIasm63XAHcCtQGOE7+8FtnGuL9gFdCN9xQtIfwHQDExF+pRpSL8zG+l35iF9Tzn0AxuQF+W5SKUZxWgDfoi05SO9rQeAdUiFXWJ4/0uATuAhyv8qB4FHgJmG988NGoFPIW9yqQfQg/Qh7aT3y70SWAMcG0HXaeBLQFNKmqqO9yLNTKkCb0Pe2vOzEhjcuzPQUkrnLuRlGbWYgLxZZ/EX8GnkITRkpM+HOqAD2Ipf8xDyi5qYlcCkaKV0oQ4BN2amLDo+jmj1lWEL0JKdtHi4Fpkt60IMAKuBydlJi42XA/ci2nV5uoEl2UmLhk5k2KjF7wbenKGuSnElsAe3XP3Asgx1jYiV+PuLnyFzg9GOyciQ3devfDZDXV58FX8T9cksRVUJK/A3YV/JUlQYt+GK6wM+nKWoKqMDsRLocn8mS1EAt+A2U8cRC+1YxwLgf7jN1/KsBF2L24F3A5dlJSgDXIaUWXf0qY++ZgBdSshpxscvQ2MBrkmoG5mLpYJGYLMSMAh8KC0BOcT7cTv6raQ0o1+N25mNxdFUXPgGN9+o9k2vQTqu8E0frfZNRxF+gtvJL67WzZoQJ4HwDfcg5oUaBJMRq7C2UlTFdL9K3WiAZOaQNuBzwCbgKOJkcCb4vCn4vzQWhaqlYz7uAtznDfQWoQ0ZRYVvsjomx2zgd7jtbCkz92+Da6yRho41iucUxqMubcM5RDyr7W3I7D3KQ9Az/hUmJUhXxxTgiOLYYFIC5O3QP8E46xm6qUuSVhmUI20dt6hrB4BZBuXgAUX8txjXfgx/wR4DbkYqu+CBODsoxGMlrrmhgjJkoaMO+Ie69nsVlAGQGbk2j0Q1Gk7DNSscB66LcO1SxL0nfG0XcEEM7XnQcYO69gwwPYZ2B3crwm1E9/C7yyNmQYx7L8B9Gb4e4/o86KgHdiS81kumfZc6Y1yvr00y9PuC4jiQgCNrHcvVtc+T0G21XRG9QDxXnaOhaw+TzGH6vODaAs+RBBxZ65gEnKD4WS5KoIH1iuT+mNffFAjpAq5PIiDA9QHHCZJ5q+RBxzqKn+W6uDefiOuFfnVckhpewiKKn2UP0XyaX8I7cdvMPO4lGS2ox/XxekepL/qgLZQbA5IakmEI+L3623t8XyxVIfrLmypVVIPzDL0V4sP5uPYeyy0B4xUzKH6mLxJxxHeFuvBfVRI4HrGP4mfrOIT4mqw5Kr/NXte4xXaVd8z6USpkl5mcGvSz1M+6ViEpI1GFtKr8His1NbBb5Z0lYl+FaKeFLiMxS4F/419jyHM6iHhpWuCYykdyENEjgRYjMXnYi540JbEy+9CqePfqL0T5hfQaibnYiCcLWGk/qfKOX4KvQprLkCRFroO+lMGLRjz65Y5UIdWCDvKyFDFY5jF1KK2pvUy+CilbiwlxQuUvMuKtBi5UeatmW7c+Dq+vQnQTpUmS4j8q/2oj3mrgNSp/1Ii3bP8c5RcyHitEa9Pak0K3NpEqpEflX2kk5pDK57nJ0hVy2Ih3msrrZtxbIftV3sq/Vs9SM41LVQZam5X5SD/LffoLvgrRD65aFXI5+YpzUkADcKn6m1WFlLUT+ipkp8rPNRKzQ+Un4TGu5QCvR7SFobUnhX65I1WI/tI8IzH7kG3EYeQx3IbWdBQx+1jgDSofuULCk7g2KvRHDeFJlR8NFfKUEW8LxZb0Ptxm3FshfcBf1d8iL8iXwRaVn2/EawmtST+LpNDeipvxhKgtZTpJ7CFRBhtVfgGyuSUvmIJbIY8bcesKeSLOxQtx1wQsHOUacOMb5ml/+0cp1vZfbOx99RT7Bg8Db49DMBHXQfhdBsIAfqB4HzbitcD3KdZmtQ1tseKN7UoK8qDCJHGdrUvhg4r3BO4wMwtMwvVnXmrE/ZDifSAJia9WLSKHTsTd0XSTAW+l0HsCj2ETGsO3HSFRn1zphp2R8B3F+2cj3kqwhWJN9xnxLle8iTfsgLsdLM6WtpFwqeIdRuIaZoX5SssQ7iQuCXxb2r5WCeF0ZKwcJrSKFPeE4v2FEW8S/FppsRrq3qh4+zEwqt6vSP+OzRD4OtxfyVsNeOPibR4d7zPgrUOCRYd51xrwMgs3FpRVJ/wHxfsk6VqA63Fjf1n1Z7cq3kHgtUbcPKLID2MTBehq3LdzpQFvVHzac3+LrXtTKN5sOozs2TTDTNzgM/cacf9I8fZiZ/IfCfNwQ/NZxf76luI9SRUW5PRe7QFsRkYX4c5L/sm5g76qgWZka0D4nl3YrPNfhRsb5g4DXgdNuMG5rAKYdSreYeBXJDAvREAj7qhqGJkYVoqpyAanMO92qhh7sR03xN+PjbjX4j6kR5FjL6wwATcM3zDwbSP+nyreIews5SXxTdwCWcS0akLWHjT348hZhZXiAs7tJg6nzdi8wSs93PcY8JZFI66ZYQDX/TIJpgHP4hZsD5W9aYuQA74079MkizCk8QHcfuMvVKfJ9aIFtyM+TYnN8DFxIf6jh4YQ0/0VMbjehDR7mqswcHiVgd6FuCPQY9gte0fGEqoXanwqpQOIFd6+VcC7keHkpCDNQH5JX8Sd8IXTb7BZqfSFGj+DhNPNBMtwO/lubEKONyDHYPgOiEma+oE7sTGQLsStjLNIhLpMsQK34H3AR4z45+DvjOOmPwJvNNLUgdtMDQO3G/FXjDtxxQ0gUUAtUIcMuX9J6VPffGkQ+Dmy2GYVPGcl/oMxv2zEb4bbcZuvYWTcb+lZcjEyifsuEvB+PxIX91TweWvwfzdju41uKnJ8ky7fWeTQzFxiGf42/zngLRnqqhRX4c7ACx145n1GOSzBPVuk0HysIV9+WOUwBTEU+pqoY2Q4moqLFtzJYyEdQZqcPAdEq0PWM3R06vCwO/V5RqUod/Tqs+Tv6NV6ZAT1FH7NhaNXU5uBVwOLcY+5CKcdiGdGlr5Zk4BP4DokhNN2UjAUpoXC8d3aES2cTiOW4w7S+dXUI5O7tbh+U+F0ijF2fHcYrYh7pu9gxnA6jCx5Lsd2pa0F+SVswPW19c2j1hvfvyyy6lhnIatonUQzfe9HmoydyCLZbsRscRIJ8FzYyt2MzBeaESvuHGTX0lxkybY1wr36EdfPe/DEIhnrmI44jh2gctNIpen5QEstviTSni9C3swe0quEHuBBxGqcZpiRksjjXKABWfNoD9JCksVr92EQeAYxVm5EDI79RtwmyGOFaDQhfUG4P5iJ9BOTOddnwLk+pTf4vBfpcwr9jt4/WUMNNdRQQw1jBv8HV2DG95vrFCYAAAAASUVORK5CYII=" style="height:80px;"></td>
+<td class="gt_row gt_right" style="background-color: rgba(255,223,186,0.8); color: #000000;"><img src="data:image/png;base64,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" style="height:80px;"></td></tr>
+    <tr><td class="gt_row gt_left">easy</td>
+<td class="gt_row gt_right" style="background-color: rgba(186,225,255,0.8); color: #000000;"><img src="data:image/png;base64,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" style="height:80px;"></td>
+<td class="gt_row gt_right" style="background-color: rgba(186,225,255,0.8); color: #000000;"><img src="data:image/png;base64,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" style="height:80px;"></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+???
+
+These factors are crossed, meaning that you can have participants in each subconditions.
+
+
+---
+
+# Efficiency of factorial design
+
+.box-inv-4.sp-after.medium[Cast problem&lt;br&gt;as a series of one-way ANOVA &lt;br&gt; vs simultaneous estimation]
+
+
+.box-4.medium.sp-before[Factorial designs requires&lt;br&gt; **fewer overall observations**]
+
+.box-4.medium.sp-before[Can study **interactions**]
+
+???
+
+To study each interaction (complexity, story book ending) we would need to make three group for each comparison in rows, and one in each column. So a total of 3 one-way ANOVA each with  2 groups and 2 one-way anova with 3 groups. The two-way ANOVA will lead to 6 groups instead of 12.
+
+---
+
+# Interaction
+
+.box-inv-4.sp-after.medium[
+**Definition**: when the effect of one factor&lt;br&gt; depends on the levels of another factor.
+]
+
+.box-inv-4[
+Effect together&lt;br&gt;
+`\(\neq\)`
+&lt;br&gt; sum of individual effects
+]
+
+---
+
+# Interaction or profile plot
+.box-inv-4.large.sp-after[Graphical display: &lt;br&gt;plot sample mean per category]
+
+.box-4.sp-after-half[with uncertainty measure&lt;br&gt;(1 std. error for mean&lt;br&gt;confidence interval, etc.)]
+
+
+
+---
+
+# Interaction plots and parallel lines
+
+&lt;img src="05-slides_files/figure-html/interaction_plots2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Interaction plots for 2 by 2 designs
+
+&lt;img src="05-slides_files/figure-html/2by2-interaction-plot-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+
+# Cell means for 2 by 2 designs
+
+&lt;img src="05-slides_files/figure-html/2by2-interaction-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+???
+
+Line graph for example patterns for means for each of the possible kinds of general outcomes in a 2 by 2 design. Illustration adapted from Figure 10.2 of Crump, Navarro and Suzuki (2019) by Matthew Crump (CC BY-SA 4.0 license)
+
+---
+ 
+# Example 1 : loans versus credit
+
+.pull-left[
+[Sharma, Tully, and Cryder (2021)](https://doi.org/10.1177/0022243721993816) Supplementary study 5 consists of a `\(2 \times 2\)` between-subject ANOVA with factors
+
+- debt type (`debttype`), either "loan" or "credit"
+- `purchase` type, either `discretionary` or not (`need`)
+
+]
+
+.pull-right[
+
+&lt;img src="05-slides_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+No evidence of interaction
+
+]
+---
+
+
+# Example 2 - psychological distance
+
+.pull-left[
+[Maglio and Polman (2014)](https://doi.org/10.1177/0956797614530571) Study 1 uses a `\(4 \times 2\)` between-subject ANOVA with factors
+
+- subway `station`, one of Spadina, St. George, Bloor-Yonge and Sherbourne
+- `direction` of travel, either east or west
+
+]
+
+.pull-right[
+
+&lt;img src="05-slides_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+Clear evidence of interaction (symmetry?)
+
+]
+
+---
+
+layout: false
+name: formulation
+class: center middle section-title section-title-5 animated fadeIn
+
+# Tests for two-way ANOVA
+
+---
+
+layout: true
+class: title title-5
+
+---
+# Analysis of variance = regression
+
+An analysis of variance model is simply a **linear regression** with categorical covariate(s).
+
+- Typically, the parametrization is chosen so that parameters reflect differences to the global mean (sum-to-zero parametrization).
+- The full model includes interactions between all combinations of factors
+   - one average for each subcategory
+   - one-way ANOVA!
+
+---
+
+# Formulation of the two-way ANOVA
+
+Two factors: `\(A\)` (complexity) and `\(B\)` (ending) with `\(n_a=3\)` and `\(n_b=2\)` levels, and their interaction.
+
+Write the average response `\(Y_{ijr}\)` of the `\(r\)`th measurement in group `\((a_i, b_j)\)` as
+`\begin{align*}
+\underset{\text{average response}\vphantom{b}}{\mathsf{E}(Y_{ijr})} = \underset{\text{subgroup mean}}{\mu_{ij}}
+\end{align*}`
+where `\(Y_{ijr}\)` are independent observations with a common std. deviation `\(\sigma\)`.
+
+- We estimate `\(\mu_{ij}\)` by the sample mean of the subgroup `\((i,j)\)`, say `\(\widehat{\mu}_{ij}\)`.
+- The fitted values are `\(\widehat{y}_{ijr} = \widehat{\mu}_{ij}\)`.
+
+---
+
+# One average for each subgroup
+
+| `\(\qquad B\)` `ending`&lt;br&gt; `\(A\)` `complexity` `\(\qquad\)` | `\(b_1\)` (`happy`) | `\(b_2\)` (`sad`)| *row mean* |
+|------------|:----------:|:-----:|:-----:|
+| `\(a_1\)` (`complicated`) | `\(\mu_{11}\)` | `\(\mu_{12}\)` | `\(\mu_{1.}\)` |
+|  `\(a_2\)` (`average`)  | `\(\mu_{21}\)` | `\(\mu_{22}\)` | `\(\mu_{2.}\)` |
+| `\(a_3\)` (`easy`) |  `\(\mu_{31}\)` | `\(\mu_{32}\)` | `\(\mu_{3.}\)` |
+|*column mean* | `\(\mu_{.1}\)` | `\(\mu_{.2}\)` | `\(\mu\)` |
+
+
+---
+
+# Row, column and overall average
+
+.pull-left[
+
+- Mean of `\(A_i\)` (average of row `\(i\)`): 
+`$$\mu_{i.} = \frac{\mu_{i1} + \cdots + \mu_{in_b}}{n_b}$$`
+
+- Mean of `\(B_j\)` (average of column `\(j\)`):
+`$$\mu_{.j} = \frac{\mu_{1j} + \cdots + \mu_{n_aj}}{n_a}$$`
+
+]
+.pull-right[
+- Overall average:
+`$$\mu = \frac{\sum_{i=1}^{n_a} \sum_{j=1}^{n_b} \mu_{ij}}{n_an_b}$$`
+
+.small[
+- Row, column and overall averages are **equiweighted** combinations of the cell means `\(\mu_{ij}\)`.
+- Estimates are obtained by replacing `\(\mu_{ij}\)` in formulas by subgroup sample mean.
+]
+]
+
+---
+
+
+# Vocabulary of effects
+
+
+- .color-5[**simple effects**]: difference between levels of one in a fixed combination of others (change in difficulty for happy ending)
+- .color-5[**main effects**]: differences relative to average for each condition of a factor (happy vs sad ending)
+- .color-5[**interaction effects**]: when simple effects differ depending on levels of another factor
+
+---
+
+# Main effects
+
+.pull-left[
+
+
+.color-5[**Main effects**] are comparisons between row or column averages
+
+Obtained by *marginalization*, i.e., averaging over the other dimension.
+
+Main effects are not of interest if there is an interaction.
+
+<div id="bgvzfontnx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bgvzfontnx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bgvzfontnx thead, #bgvzfontnx tbody, #bgvzfontnx tfoot, #bgvzfontnx tr, #bgvzfontnx td, #bgvzfontnx th {
+  border-style: none;
+}
+
+#bgvzfontnx p {
+  margin: 0;
+  padding: 0;
+}
+
+#bgvzfontnx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bgvzfontnx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bgvzfontnx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bgvzfontnx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bgvzfontnx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bgvzfontnx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bgvzfontnx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bgvzfontnx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bgvzfontnx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bgvzfontnx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bgvzfontnx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bgvzfontnx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bgvzfontnx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bgvzfontnx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bgvzfontnx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bgvzfontnx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bgvzfontnx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bgvzfontnx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bgvzfontnx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bgvzfontnx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bgvzfontnx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bgvzfontnx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bgvzfontnx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bgvzfontnx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bgvzfontnx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bgvzfontnx .gt_left {
+  text-align: left;
+}
+
+#bgvzfontnx .gt_center {
+  text-align: center;
+}
+
+#bgvzfontnx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bgvzfontnx .gt_font_normal {
+  font-weight: normal;
+}
+
+#bgvzfontnx .gt_font_bold {
+  font-weight: bold;
+}
+
+#bgvzfontnx .gt_font_italic {
+  font-style: italic;
+}
+
+#bgvzfontnx .gt_super {
+  font-size: 65%;
+}
+
+#bgvzfontnx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bgvzfontnx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bgvzfontnx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bgvzfontnx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bgvzfontnx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bgvzfontnx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bgvzfontnx .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <colgroup>
+    <col/>
+    <col style="width:120px;"/>
+    <col style="width:120px;"/>
+  </colgroup>
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=" "> </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="happy">happy</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="sad">sad</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="X" class="gt_row gt_left">column means</td>
+<td headers="happy" class="gt_row gt_left">$$\mu_{.1}$$</td>
+<td headers="sad" class="gt_row gt_left">$$\mu_{.2}$$</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+
+]
+
+.pull-right[
+
+<div id="dduhtxcdze" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dduhtxcdze table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dduhtxcdze thead, #dduhtxcdze tbody, #dduhtxcdze tfoot, #dduhtxcdze tr, #dduhtxcdze td, #dduhtxcdze th {
+  border-style: none;
+}
+
+#dduhtxcdze p {
+  margin: 0;
+  padding: 0;
+}
+
+#dduhtxcdze .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dduhtxcdze .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dduhtxcdze .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dduhtxcdze .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dduhtxcdze .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dduhtxcdze .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dduhtxcdze .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dduhtxcdze .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dduhtxcdze .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dduhtxcdze .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dduhtxcdze .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dduhtxcdze .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dduhtxcdze .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dduhtxcdze .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dduhtxcdze .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dduhtxcdze .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dduhtxcdze .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dduhtxcdze .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dduhtxcdze .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dduhtxcdze .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dduhtxcdze .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dduhtxcdze .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dduhtxcdze .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dduhtxcdze .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dduhtxcdze .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dduhtxcdze .gt_left {
+  text-align: left;
+}
+
+#dduhtxcdze .gt_center {
+  text-align: center;
+}
+
+#dduhtxcdze .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dduhtxcdze .gt_font_normal {
+  font-weight: normal;
+}
+
+#dduhtxcdze .gt_font_bold {
+  font-weight: bold;
+}
+
+#dduhtxcdze .gt_font_italic {
+  font-style: italic;
+}
+
+#dduhtxcdze .gt_super {
+  font-size: 65%;
+}
+
+#dduhtxcdze .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dduhtxcdze .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dduhtxcdze .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dduhtxcdze .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dduhtxcdze .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dduhtxcdze .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dduhtxcdze .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <colgroup>
+    <col/>
+    <col style="width:120px;"/>
+  </colgroup>
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="complexity">complexity</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="row means">row means</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="complexity" class="gt_row gt_left">complicated</td>
+<td headers="response" class="gt_row gt_left" style="background-color: rgba(255,179,186,0.8); color: #000000;">$$\mu_{1.}$$</td></tr>
+    <tr><td headers="complexity" class="gt_row gt_left">average</td>
+<td headers="response" class="gt_row gt_left" style="background-color: rgba(255,223,186,0.8); color: #000000;">$$\mu_{2.}$$</td></tr>
+    <tr><td headers="complexity" class="gt_row gt_left">easy</td>
+<td headers="response" class="gt_row gt_left" style="background-color: rgba(186,225,255,0.8); color: #000000;">$$\mu_{3.}$$</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+]
+
+---
+
+# Simple effects
+
+.pull-left[
+
+
+.color-5[**Simple effects**] are comparisons between cell averages within a given row or column
+
+
+<div id="bohtplcwis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bohtplcwis table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bohtplcwis thead, #bohtplcwis tbody, #bohtplcwis tfoot, #bohtplcwis tr, #bohtplcwis td, #bohtplcwis th {
+  border-style: none;
+}
+
+#bohtplcwis p {
+  margin: 0;
+  padding: 0;
+}
+
+#bohtplcwis .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bohtplcwis .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bohtplcwis .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bohtplcwis .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bohtplcwis .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bohtplcwis .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bohtplcwis .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bohtplcwis .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bohtplcwis .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bohtplcwis .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bohtplcwis .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bohtplcwis .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bohtplcwis .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bohtplcwis .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bohtplcwis .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bohtplcwis .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bohtplcwis .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bohtplcwis .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bohtplcwis .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bohtplcwis .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bohtplcwis .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bohtplcwis .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bohtplcwis .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bohtplcwis .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bohtplcwis .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bohtplcwis .gt_left {
+  text-align: left;
+}
+
+#bohtplcwis .gt_center {
+  text-align: center;
+}
+
+#bohtplcwis .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bohtplcwis .gt_font_normal {
+  font-weight: normal;
+}
+
+#bohtplcwis .gt_font_bold {
+  font-weight: bold;
+}
+
+#bohtplcwis .gt_font_italic {
+  font-style: italic;
+}
+
+#bohtplcwis .gt_super {
+  font-size: 65%;
+}
+
+#bohtplcwis .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bohtplcwis .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bohtplcwis .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bohtplcwis .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bohtplcwis .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bohtplcwis .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bohtplcwis .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <colgroup>
+    <col/>
+    <col style="width:120px;"/>
+    <col style="width:120px;"/>
+  </colgroup>
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=" "> </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="happy">happy</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="sad">sad</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="X" class="gt_row gt_left">means (easy)</td>
+<td headers="happy" class="gt_row gt_left" style="background-color: rgba(186,225,255,0.8); color: #000000;">$$\mu_{13}$$</td>
+<td headers="sad" class="gt_row gt_left" style="background-color: rgba(186,225,255,0.8); color: #000000;">$$\mu_{23}$$</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+
+]
+
+.pull-right[
+
+<div id="vdhjkbuovq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vdhjkbuovq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vdhjkbuovq thead, #vdhjkbuovq tbody, #vdhjkbuovq tfoot, #vdhjkbuovq tr, #vdhjkbuovq td, #vdhjkbuovq th {
+  border-style: none;
+}
+
+#vdhjkbuovq p {
+  margin: 0;
+  padding: 0;
+}
+
+#vdhjkbuovq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vdhjkbuovq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vdhjkbuovq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vdhjkbuovq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vdhjkbuovq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vdhjkbuovq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vdhjkbuovq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vdhjkbuovq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vdhjkbuovq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vdhjkbuovq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vdhjkbuovq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vdhjkbuovq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vdhjkbuovq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vdhjkbuovq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vdhjkbuovq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vdhjkbuovq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vdhjkbuovq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vdhjkbuovq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vdhjkbuovq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vdhjkbuovq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vdhjkbuovq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vdhjkbuovq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vdhjkbuovq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vdhjkbuovq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vdhjkbuovq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vdhjkbuovq .gt_left {
+  text-align: left;
+}
+
+#vdhjkbuovq .gt_center {
+  text-align: center;
+}
+
+#vdhjkbuovq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vdhjkbuovq .gt_font_normal {
+  font-weight: normal;
+}
+
+#vdhjkbuovq .gt_font_bold {
+  font-weight: bold;
+}
+
+#vdhjkbuovq .gt_font_italic {
+  font-style: italic;
+}
+
+#vdhjkbuovq .gt_super {
+  font-size: 65%;
+}
+
+#vdhjkbuovq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vdhjkbuovq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vdhjkbuovq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vdhjkbuovq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vdhjkbuovq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vdhjkbuovq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vdhjkbuovq .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <colgroup>
+    <col/>
+    <col style="width:120px;"/>
+  </colgroup>
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="complexity">complexity</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="mean (happy)">mean (happy)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="complexity" class="gt_row gt_left">complicated</td>
+<td headers="response" class="gt_row gt_left" style="background-color: rgba(255,179,186,0.8); color: #000000;">$$\mu_{11}$$</td></tr>
+    <tr><td headers="complexity" class="gt_row gt_left">average</td>
+<td headers="response" class="gt_row gt_left" style="background-color: rgba(255,223,186,0.8); color: #000000;">$$\mu_{21}$$</td></tr>
+    <tr><td headers="complexity" class="gt_row gt_left">easy</td>
+<td headers="response" class="gt_row gt_left" style="background-color: rgba(186,225,255,0.8); color: #000000;">$$\mu_{31}$$</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+]
+
+---
+
+# Contrasts
+
+We collapse categories to obtain a one-way ANOVA with categories `\(A\)` (complexity) and `\(B\)` (ending).
+
+Q: How would you write the weights for contrasts for testing the 
+
+- main effect of `\(A\)`: complicated vs average, or complicated vs easy.
+- main effect of `\(B\)`: happy vs sad.
+- interaction `\(A\)` and `\(B\)`: difference between complicated and average, for happy versus sad?
+
+The order of the categories is `\((a_1, b1)\)`, `\((a_1, b_2)\)`, `\(\ldots\)`, `\((a_3, b_2)\)`.
+
+---
+
+# Contrasts
+
+Suppose the order of the coefficients is factor `\(A\)` (complexity, 3 levels, complicated/average/easy) and factor `\(B\)` (ending, 2 levels, happy/sad).
+
+| test | `\(\mu_{11}\)` | `\(\mu_{12}\)` | `\(\mu_{21}\)` | `\(\mu_{22}\)` | `\(\mu_{31}\)` | `\(\mu_{32}\)` |
+|:--|--:|--:|--:|--:|--:|--:|
+| main effect `\(A\)` (complicated vs average) |  `\(1\)` | `\(1\)` | `\(-1\)` |  `\(-1\)` | `\(0\)` | `\(0\)` |
+| main effect `\(A\)` (complicated vs easy) |    `\(1\)` |  `\(1\)` | `\(0\)` | `\(0\)` | `\(-1\)` |  `\(-1\)` |
+| main effect `\(B\)` (happy vs sad) |    `\(1\)` |  `\(-1\)` | `\(1\)` |  `\(-1\)` | `\(1\)` | `\(-1\)` |
+| interaction `\(AB\)` (comp. vs av, happy vs sad) | `\(1\)` | `\(-1\)` | `\(-1\)` | `\(1\)` | `\(0\)` | `\(0\)` |
+| interaction `\(AB\)` (comp. vs easy, happy vs sad) |  `\(1\)` | `\(-1\)` | `\(0\)` | `\(0\)` | `\(-1\)` | `\(1\)` |
+
+---
+
+# Global hypothesis tests
+
+&lt;!-- Generally, need to compare multiple effects at once --&gt;
+.box-inv-5[
+Main effect of factor `\(A\)`
+]
+
+`\(\mathscr{H}_0\)`: `\(\mu_{1.} = \cdots = \mu_{n_a.}\)` vs `\(\mathscr{H}_a\)`: at least two marginal means of `\(A\)` are different
+.box-inv-5[
+Main effect of factor `\(B\)`
+]
+
+`\(\mathscr{H}_0\)`: `\(\mu_{.1} = \cdots = \mu_{.n_b}\)` vs `\(\mathscr{H}_a\)`: at least two marginal means of `\(B\)` are different
+.box-inv-5[
+Interaction
+]
+
+`\(\mathscr{H}_0\)`: `\(\mu_{ij} = \mu_{i \cdot} + \mu_{\cdot j}\)` (sum of main effects) vs `\(\mathscr{H}_a\)`: effect is not a combination of row/column effect.
+
+
+---
+
+# Comparing nested models
+
+Rather than present the specifics of ANOVA, we consider a general hypothesis testing framework which is more widely applicable.
+
+We compare two competing models
+
+- the alternative or full model `\(\mathscr{H}_a\)`
+- the simpler null model `\(\mathscr{H}_0\)`, which imposes `\(\nu\)` restrictions on the full model
+
+???
+
+The same holds for analysis of deviance for generalized linear models. The latter use likelihood ratio tests (which are equivalent to F-tests for linear models), with a `\(\chi^2_{\nu}\)` null distribution.
+
+---
+
+# Intuition behind `\(F\)`-test for ANOVA
+
+The more complex fits better (it is necessarily more flexible), but requires estimation of more parameters.
+
+- Test compares the goodness-of-fit and attempts to determine what is the improvement that would occur by chance, if the null model was correct, given `\(\nu\)` additional parameters.
+
+---
+
+# Testing linear restrictions in linear models
+
+If the alternative model has `\(p\)` parameters for the mean, and we impose `\(\nu\)` linear restrictions under the null hypothesis to the model estimated based on `\(n\)` independent observations, the test statistic is
+
+`\begin{align*}
+F = \frac{(\mathsf{RSS}_0 - \mathsf{RSS}_a)/\nu}{\mathsf{RSS}_a/(n-p)}
+\end{align*}`
+
+- The numerator is the difference in residuals sum of squares, denoted `\(\mathsf{RSS}\)`, from models fitted under `\(\mathscr{H}_0\)` and `\(\mathscr{H}_a\)`, divided by degrees of freedom `\(\nu\)`.
+- The denominator is an estimator of the variance, obtained under `\(\mathscr{H}_a\)` (termed mean squared error of residuals)
+- The benchmark for tests in linear models is Fisher's `\(\mathsf{F}(\nu, n-p)\)`.
+
+---
+
+# Analysis of deviance
+
+For other generalized linear models with parameters `\(\boldsymbol{\theta}\)`, we proceed similarly, but we use the log *likelihood* function, `\(\ell(\boldsymbol{\theta})\)` as goodness-of-fit measure.
+
+- The higher the (log) likelihood, the better the fit.
+- Obtain parameter estimates  `\(\widehat{\boldsymbol{\theta}}_0\)` under the null hypothesis and 
+ `\(\widehat{\boldsymbol{\theta}}_a\)` under the alternative by maximum likelihood estimation.
+- Consider the likelihood ratio statistic  `$$R = 2\{\ell(\widehat{\boldsymbol{\theta}}_a) - \ell(\widehat{\boldsymbol{\theta}}_0)\}$$`
+- Under regularity conditions, we compare `\(R\)` to a chi-square distribution with `\(\nu\)` degrees of freedom, `\(\chi^2_{\nu}\)`.
+
+---
+
+# Analysis of variance table
+
+
+.small[
+  
+| term | degrees of freedom | mean square | `\(F\)` | 
+|------|--------|------|--------|
+| `\(A\)`  | `\(n_a-1\)`   | `\(\mathsf{MS}_{A}=\mathsf{SS}_A/(n_a-1)\)` | `\(\mathsf{MS}_{A}/\mathsf{MS}_{\text{res}}\)` |
+| `\(B\)`  | `\(n_b-1\)`   | `\(\mathsf{MS}_{B}=\mathsf{SS}_B/(n_b-1)\)` | `\(\mathsf{MS}_{B}/\mathsf{MS}_{\text{res}}\)` |
+| `\(AB\)` | `\((n_a-1)(n_b-1)\)` | `\(\mathsf{MS}_{AB}=\mathsf{SS}_{AB}/\{(n_a-1)(n_b-1)\}\)` | `\(\mathsf{MS}_{AB}/\mathsf{MS}_{\text{res}}\)` |
+| residuals | `\(n-n_an_b\)` | `\(\mathsf{MS}_{\text{resid}}=\mathsf{RSS}_{a}/ (n-ab)\)` | |
+| total | `\(n-1\)` | | 
+    
+]
+
+Read the table backward (starting with the interaction).
+- If there is a significant interaction, the main effects are **not** of interest and potentially misleading.
+
+---
+
+# Intuition behind degrees of freedom
+.small[
+
+The model always includes an overall average `\(\mu\)`.  There are
+
+- `\(n_a-1\)` free row means since `\(n_a\mu = \mu_{1.} + \cdots + \mu_{n_a.}\)` 
+- `\(n_b-1\)` free column means as `\(n_b\mu = \mu_{.1} + \cdots + \mu_{.n_b}\)`
+- `\(n_an_b-(n_a-1)-(n_b-1)-1\)` interaction terms
+
+| `\(\qquad B\)` `ending`&lt;br&gt; `\(A\)` `complexity` `\(\qquad\)` | `\(b_1\)` (`happy`) | `\(b_2\)` (`sad`)| *row mean* |
+|------------|:----------:|:-----:|:-----:|
+| `\(a_1\)` (`complicated`) | `\(\mu_{11}\)` | `\(\mathsf{X}\)` | `\(\mu_{1.}\)` |
+|  `\(a_2\)` (`average`)  | `\(\mu_{21}\)` | `\(\mathsf{X}\)`  | `\(\mu_{2.}\)` |
+| `\(a_3\)` (`easy`) |  `\(\mathsf{X}\)`  | `\(\mathsf{X}\)`  | `\(\mathsf{X}\)` |
+|*column mean* | `\(\mu_{.1}\)` | `\(\mathsf{X}\)` | `\(\mu\)` |
+ 
+Terms with `\(\mathsf{X}\)` are fully determined by row/column/total averages
+
+]
+
+---
+
+# Example 1
+
+The interaction plot suggested that the two-way interaction wasn't significant. The `\(F\)` test confirms this.
+
+There is a significant main effect of both `purchase` and `debttype`.
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; term &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; SS &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; F stat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p-value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; purchase &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 752.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 98.21 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; debttype &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 92.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; purchase:debttype &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.182 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Residuals &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11467.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1497 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+# Example 2
+
+There is a significant interaction between `station` and `direction`, so follow-up by looking at simple effects or contrasts.
+
+The tests for the main effects are not of interest! Disregard other entries of the ANOVA table
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; term &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; SS &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; F stat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p-value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; station &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 75.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; direction &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.541 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; station:direction &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 52.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16.28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Residuals &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 208.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 194 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Main effects for Example 1
+
+We consider differences between debt type labels. 
+
+Participants are more likely to consider the offer if it is branded as `credit` than loan. The difference is roughly 0.5 (on a Likert scale from 1 to 9).
+.small[
+
+
+```
+## $emmeans
+##  debttype emmean    SE   df lower.CL upper.CL
+##  credit     5.12 0.101 1497     4.93     5.32
+##  loan       4.63 0.101 1497     4.43     4.83
+## 
+## Results are averaged over the levels of: purchase 
+## Confidence level used: 0.95 
+## 
+## $contrasts
+##  contrast      estimate    SE   df t.ratio p.value
+##  credit - loan    0.496 0.143 1497   3.469  0.0005
+## 
+## Results are averaged over the levels of: purchase
+```
+]
+---
+
+# Toronto subway station
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/05/Toronto_subway.png" alt="Simplified depiction of the Toronto metro stations used in the experiment, based on work by Craftwerker on Wikipedia, distributed under CC-BY-SA 4.0." width="70%" /&gt;
+&lt;p class="caption"&gt;Simplified depiction of the Toronto metro stations used in the experiment, based on work by Craftwerker on Wikipedia, distributed under CC-BY-SA 4.0.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+# Reparametrization for Example 2
+
+Set `stdist` as `\(-2\)`, `\(-1\)`, `\(+1\)`, `\(+2\)` to indicate station distance, with negative signs indicating stations in opposite direction of travel
+
+
+
+The ANOVA table for the reparametrized models shows no evidence against the null of symmetry (interaction).
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; term &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; SS &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; F stat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p-value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; stdist &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 121.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 37.86 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; direction &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.554 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; stdist:direction &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.77 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.154 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Residuals &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 208.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 194 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Interaction plot for reformated data
+
+&lt;img src="05-slides_files/figure-html/unnamed-chunk-17-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+---
+
+# Custom contrasts for Example 2
+
+We are interested in testing the perception of distance, by looking at `\(\mathscr{H}_0: \mu_{-1} = \mu_{+1}, \mu_{-2} = \mu_{+2}\)`.
+
+
+
+```r
+mod3 &lt;- lm(distance ~ stdist * direction, data = MP14_S1) 
+(emm &lt;- emmeans(mod3, specs = "stdist"))
+  # order is -2, -1, 1, 2
+contrasts &lt;- emm |&gt; contrast(
+  list("two dist" = c(-1, 0, 0, 1), 
+        "one dist" = c(0, -1, 1, 0)))
+contrasts # print pairwise contrasts
+test(contrasts, joint = TRUE)
+```
+---
+
+# Estimated marginal means and contrasts
+
+.small[
+Strong evidence ofifferences in perceived distance depending on direction of travel.
+
+
+
+```
+##  stdist emmean    SE  df lower.CL upper.CL
+##  -2       3.83 0.145 194     3.54     4.11
+##  -1       2.48 0.144 194     2.20     2.76
+##  +1       1.62 0.150 194     1.33     1.92
+##  +2       2.70 0.145 194     2.42     2.99
+## 
+## Results are averaged over the levels of: direction 
+## Confidence level used: 0.95
+```
+
+```
+##  contrast estimate    SE  df t.ratio p.value
+##  two dist   -1.122 0.205 194  -5.470  &lt;.0001
+##  one dist   -0.856 0.207 194  -4.129  0.0001
+## 
+## Results are averaged over the levels of: direction
+```
+
+```
+##  df1 df2 F.ratio p.value
+##    2 194  23.485  &lt;.0001
+```
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": false,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

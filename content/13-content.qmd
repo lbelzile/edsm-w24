@@ -1,0 +1,57 @@
+---
+title: "Nonparametric tests and count data"
+---
+
+## Content
+
+- Models and tests for count data
+- Nonparametric tests
+
+
+## Learning objectives
+
+At the end of the session, students should be capable of
+
+- Understanding the benefits and drawback of rank-based tests.
+- Performing tests for count data and correctly report their output.
+
+
+
+## Readings
+
+- {{< fa book >}}[Chapter 12 *Categorical data analysis*](https://learningstatisticswithr.com/book/chisquare.html) of @Navarro:2019
+-  Chapters [12](https://lbelzile.github.io/math80667a/12-nonparametric.html) and [13](https://lbelzile.github.io/math80667a/13-count.html) of the course notes
+
+
+
+## Slides
+
+```{r}
+#| label: slides-videos
+#| echo: false
+#| include: false
+source(here::here("R", "slide-things.R"))
+```
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/13-slides")
+```
+
+
+```{r show-slides-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(
+  url = "/slides/13-slides.html",
+  ratio = "16:9"
+)
+```
+
+
+## Code
+
+- [R script](/content/MATH80667A-13-content.R)
+- [SPSS script](/content/MATH80667A-13-content.sps)
+
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of slide-specific commands.
+:::

@@ -1,0 +1,65 @@
+---
+title: "Designs to reduce the error"
+---
+
+## Content
+
+- Blocking
+- Analysis of covariance
+
+
+## Learning objectives
+
+At the end of the session, students should be capable of
+
+- explain the benefits of blocked design and ANCOVA over completely randomized designs
+- using control covariates or blocking factors
+- testing equality of slopes
+
+## Readings
+
+- {{< fa book >}} [Chapter 6](https://lbelzile.github.io/math80667a/06-blocking_ancova.html) of the course notes
+- {{< fa book >}} Chapter 5 ([Complete Block Designs](https://stat.ethz.ch/~meier/teaching/anova/block-designs.html)) of @Meier:2022 (5.1-5.2)
+
+## Complementary readings
+
+- {{< fa book >}}  Chapter 9 of @Maxwell.Delaney.Kelley:2017.
+- {{< fa book >}}  Chapter 4 of @Cox:1958.
+
+## Videos
+
+
+<div class="ratio ratio-16x9">
+<iframe src="https://www.youtube.com/embed/gTLp0pplRXk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+
+
+## Slides
+
+```{r}
+#| label: slides-videos
+#| echo: false
+#| include: false
+source(here::here("R", "slide-things.R"))
+```
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/07-slides")
+# slide_tabs(slide_details, "/slides/06-slides.html")
+```
+
+```{r show-slides-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(
+  url = "/slides/07-slides.html",
+  ratio = "16:9"
+)
+```
+
+## Code
+
+- [R script](/content/MATH80667A-07-content.R)
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of slide-specific commands.
+:::

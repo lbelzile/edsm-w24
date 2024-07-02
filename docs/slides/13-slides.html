@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Count data and nonparametric tests</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Léo Belzile" />
+    <meta name="date" content="2024-04-15" />
+    <script src="libs/header-attrs-2.26/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <script src="libs/peerjs-1.3.1/peerjs.min.js"></script>
+    <script src="libs/tiny.toast-1.0.0/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast-0.2.6/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast-0.2.6/broadcast.js"></script>
+    <script src="libs/freezeframe-5.0.2/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe-0.0.1/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link rel="stylesheet" href="css/ath-slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/ath-inferno-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: center middle main-title section-title-1
+
+# Count data and nonparametric tests
+
+.class-info[
+
+**Session 13**
+
+.light[MATH 80667A: Experimental Design and Statistical Methods &lt;br&gt;
+HEC Montréal
+]
+
+]
+
+---
+name: outline
+class: title title-inv-1
+
+# Outline
+--
+
+
+.box-2.large.sp-after-half[Count data]
+
+ 
+
+.box-3.large.sp-after-half[Nonparametric tests]
+
+
+---
+
+layout: false
+name: counts
+class: center middle section-title section-title-2
+
+# Count data
+
+---
+
+layout: true
+class: title title-2
+
+---
+
+
+
+
+
+# Tabular data
+
+Aggregating binary responses gives .color-2[counts].
+
+.small[
+
+[Duke and Amir (2023)](https://doi.org/10.1287/mksc.2022.1364) investigated the impact  on sales of presenting customers with 
+
+- a sequential choice (first decide whether or not to buy, then pick quantity) versus
+- an integrated decision (choose not to buy, or one of different quantities).
+
+]
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; quantity-integrated &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; quantity-sequential &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; did not purchase &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 133 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; purchased &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+**Question**: does the selling format increases sales?
+
+---
+
+# Pearson chi-square test
+
+Consider an `\(I \times J\)` **contingency table**.
+
+Denote the observed counts in the `\((i,j)\)`th cell `\(O_{ij}\)`.
+
+We compare these with expected counts under the null hypothesis, `\(E_{ij}\)`'s.
+
+The test statistic is 
+`$$P =\sum_{i=1}^I \sum_{j=1}^J \frac{(O_{ij}-E_{ij})^2}{E_{ij}}.$$`
+
+.small[
+
+Yate's correction for  `\(2 \times 2\)` tables involves subtract `\(1/2\)` from the differences `\(O_{ij}-E_{ij}\)`.
+
+]
+---
+
+# Null distribution for Pearson chi-square test
+In large samples (if `\(\min_{i,j} E_{ij} &gt; 5\)`), the statistic behaves like a chi-square distribution with `\(\nu\)` degrees of freedom, denoted `\(P \stackrel{\cdot}{\sim} \chi^2_\nu\)`.
+
+The degrees of freedom are the difference between the number of cells `\(N=IJ\)` and the number of parameters under `\(\mathscr{H}_0\)`.
+
+
+```r
+data(DA23_E2, package = "hecedsm")
+tabs &lt;- with(DA23_E2, table(purchased, format))
+# Chi-square test for independence
+chisq &lt;- chisq.test(tabs)
+```
+
+The test statistic is 21.92, with 1 degree of freedom. The `\(p\)`-value is less than `\(10^{-4}\)`, so strong evidence that there are differences between selling format.
+
+---
+
+# Effect size 
+
+Effect sizes for contingency tables range from 0 (no association) to 1 (perfect association).
+
+Measures include 
+
+- `\(\phi\)` for `\(2 \times 2\)` contingency tables, `\(\phi = \sqrt{P/n}\)`.
+- Cramér's `\(V\)`, which is a renormalization, `\(V = \phi/ \sqrt{\min(I-1, J-1)}\)`.
+
+Small sample (bias) corrections are often employed.
+
+We obtain `\(V=0.2541\)`, a moderate effect size.
+
+---
+
+# Poisson regression models
+
+We cannot use ANOVA for counts, but analysis of deviance is similar.
+
+Assume `\(Y_{ij} \sim \mathsf{Poisson}(\mu_{ij})\)` where the mean is nonnegative.
+
+For example, the main-effect model  is of the form
+
+`\begin{align*}
+\ln \mu_{ij}=\underset{\substack{\text{global}\\\text{mean}}}{\mu} + \underset{\substack{\text{row}\\\text{effect}}}{\alpha_i} + \underset{\substack{\text{column}\\\text{effect}}}{\beta_j}, \quad i=1, \ldots, I; j=1, \ldots, J
+\end{align*}`
+with sum-to-zero constraints for `\(\alpha_i\)`, `\(\beta_j\)`.
+---
+
+# Remarks
+
+- Compared to linear regression and ANOVA, the variance of the cells is solely determined by the mean counts
+- Each dimension of the contingency table (row, column, depth) is a factor
+- Each cell is a response value. There are as many observations, `\(N=IJ\)`, as cells.
+
+
+---
+
+# Tests for Poisson regression models
+
+We can use a likelihood ratio test or score test (aka Pearson `\(\chi^2\)` statistic!)
+
+
+We compare two nested models: 
+
+- typically, the alternative model is the .color-2[**satured model**], which has as many averages as cells (model with an interaction) and for which the averages are given by observed counts, `\(\widehat{\mu}_{ij} = o_{ij}\)`.
+- the null model, a simplification with `\(k\)` parameters
+- large-sample distribution of tests is `\(\chi^2_{\nu}\)`, with `\(\nu=N-k\)` degrees of freedom the difference in the number of parameters between alternative and null model.
+
+---
+
+# Example 2 - frequency of elocution
+
+We consider [Elliot et al. (2021)](https://doi.org/10.1177/25152459211018187) multi-lab replication study on spontaneous verbalization of children when asked to identify pictures of objects. 
+
+.small[
+
+
+```r
+data(MULTI21_D1, package = "hecedsm")
+contingency &lt;- xtabs( #pool data
+  count ~ age + frequency, 
+  data = MULTI21_D1)
+# No correction to get same result as Poisson regression model
+(chisqtest &lt;- chisq.test(contingency, correct = FALSE))
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  contingency
+## X-squared = 87.467, df = 6, p-value &lt; 2.2e-16
+```
+
+]
+---
+
+# Poisson regression analog
+
+
+```r
+MULTI21_D1_long &lt;- MULTI21_D1 |&gt; # pool data by age freq
+  dplyr::group_by(age, frequency) |&gt;  # I=4 age group, J=3 freq
+  dplyr::summarize(total = sum(count)) # aggregate counts
+mod_main &lt;- glm(total ~ age + frequency, # null model, no interaction
+    family = poisson, data = MULTI21_D1_long)
+mod_satur &lt;- glm(total ~ age * frequency, # saturated model
+    family = poisson, data = MULTI21_D1_long)
+# Likelihood ratio test and Pearson chi-square
+anova(mod_main, mod_satur, test = "LRT")  # deviance
+anova(mod_main, mod_satur, test = "Rao")  # score test
+```
+
+.small[
+
+The null model is the .color-2[**main effect model**] (no interaction, "independence between factors"). There are `\((I-1) \times (J-1)\)` interaction terms (6 degrees of freedom) for the tests.
+
+]
+
+
+---
+
+
+# Example 3 - racial discrimination
+
+
+We consider a  study from [Bertrand and Mullainathan (2004)](https://doi.org/10.1257/0002828042002561), who study racial discrimination in hiring based on the consonance of applicants names.
+
+The authors created curriculum vitae for four applicants and randomly allocated them a name, either one typical of a white person or a black person. 
+
+The response is a count indicating how many of the applicants were called back (out of 4 profiles: 2 black and 2 white), depending on their origin.
+
+---
+
+# Testing symmetry
+
+.pull-left[
+
+Under the null hypothesis of **symmetry**, the off-diagonal entries of the table have equal frequency.
+
+- The expected counts `\(E\)` are the average of two cells `\(E_{ij} = (O_{ij} + O_{ji})/2\)` for `\(i\neq j.\)`
+
+]
+
+.pull-right[
+
+&lt;img src="img/13/BM04.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Fitting Poisson models
+
+- Null model: Poisson model with `sym` as factor
+- Alternative model: saturated model (observed counts)
+
+
+```r
+data(BM04_T2, package = "hecedsm")
+# Symmetric model with 6 parameters (3 diag + 3 upper triangular)
+mod_null &lt;- glm(count ~ gnm::Symm(black, white), 
+                data = BM04_T2, 
+                family = poisson)
+# Compare the two nested models using a likelihood ratio test
+pchisq(deviance(mod_null), lower.tail = FALSE,
+       df = mod_null$df.residual) # 9 cells - 6 parameters = 3
+PearsonX2 &lt;- sum(residuals(mod_null, type = "pearson")^2)
+pchisq(PearsonX2, df = mod_null$df.residual, lower.tail = FALSE)
+```
+
+
+
+---
+
+layout: false
+name: nonparametric
+class: center middle section-title section-title-3
+
+# Nonparametric tests
+
+---
+
+layout: true
+class: title title-3
+
+---
+
+# Why nonparametric tests?
+
+Nonparametric tests refer to procedures which make no assumption about the nature of the data (e.g., normality)
+
+
+Rather than considering numeric response `\(Y_{(1)} \leq \cdots \leq Y_{(n)}\)`, we substitute them with ranks `\(1, \ldots, n\)` (assuming no ties), where `$$R_i=\mathrm{rank}(Y_i) = \#\{j: Y_i \geq Y_j, j =1, \ldots, n\}$$`
+
+- e.g., numbers `\((8,2,1,2)\)` have (average) ranks `\((4, 2.5, 1, 2.5)\)`
+
+.small[
+
+
+
+
+]
+---
+
+# Understanding rank-based procedures
+
+Many tests could be interpreted (roughly) as [linear/regression or ANOVA](https://lindeloev.github.io/tests-as-linear/)
+
+- but with the values of the rank `\(R_i\)` rather than that of the response `\(Y_i\)`
+
+
+Ranks are not affected by outliers (more robust)
+   - this is useful for continuous data, less for Likert scales (lots of ties, bounded scales)
+
+
+
+---
+
+# Wilcoxon's signed rank test
+
+For paired data with differences `\(D_i=Y_{i2}-Y_{i1}\)`, we wish to know if the average rank is zero.
+
+- remove zero differences
+- rank absolute values `\(R_i = \mathrm{rank}(|D_i|)\)` of the remaining observations
+- compute the test statistic `\(T = \sum_{i=1}^n \mathrm{sign}(D_i)R_i\)`
+- compare with reference under hypothesis of symmetry of the distribution.
+
+The latter is analogous to a one-sample `\(t\)`-test for `\(\mu_D=0\)`.
+
+---
+
+# Kruskal–Wallis test
+
+Roughly speaking
+
+- rank observations of the pooled sample (abstracting from `\(K\)` group labels)
+- compare average ranks in each group.
+- compare with reference
+
+For `\(K = 2\)`, the test is called Mann–Whitney–Wilcoxon or Mann–Whitney `\(U\)` or Wilcoxon rank sum test.
+
+Analogous to running two-sample `\(t\)`-test or one-way ANOVA with ranks.
+
+---
+
+# Null distributions and benchmarks
+
+
+Since ranks are discrete (assuming no ties), we can derive explicit expression for values
+that the statistic can take in small samples.
+
+- Zero differences and ties mess up things.
+- With more than 15 observations by group, large-sample approximations (normal, Student-*t* or `\(F\)` distribution) from linear regression/ANOVA are valid.
+
+---
+
+# Example 1 - Virtual communications
+
+[Brucks and Levav (2022)](https://doi.org/10.1038/s41586-022-04643-y) measure the attention of participants during exchanges using an eyetracker in
+
+- face-to-face meetings
+- videoconference meetings
+
+Data suggests that videoconferencing translates into longer time spent gazing at the partner than in-person meetings.
+
+---
+
+# Code for Wilcoxon rank-sum test
+
+The `coin` package function reports Hodges–Lehmann estimate of location.
+
+Intervals and estimates of difference in mean are in seconds (-37 seconds).
+
+
+```r
+data(BL22_E, package = "hecedsm")
+(mww &lt;- coin::wilcox_test( # rank-based test
+  partner_time ~ cond, 
+  data = BL22_E,  
+  conf.int = TRUE)) # values and intervals are times in seconds
+welch &lt;- t.test(partner_time ~ cond, 
+  data = BL22_E, # compare results with two sample t-test
+  conf.int = TRUE)
+```
+
+
+---
+
+# Example 2 - Smartwatches distractions
+
+We consider a within-subject design from Tech3Lab ([Brodeur et al., 2021](https://doi.org/10.1016/j.aap.2020.105846)).
+
+Each of the 31 participants was assigned to four distractions while using a driving simulator
+
+- phone
+- using a speaker
+- texting while driving
+- smartwatch
+
+Task order was randomized and data are balanced
+
+The response is the number of road safety violations conducted on the segment. 
+ 
+---
+
+# Friedman and Quade tests
+
+We use Quade's test, which ranks responses of each participants `\(1, 2, 3, 4\)` separately.
+
+
+
+```r
+data(BRLS21_T3, package = "hecedsm")
+coin::friedman_test(nviolation ~ task | id,
+                 data = BRLS21_T3)
+```
+
+```
+## 
+## 	Asymptotic Friedman Test
+## 
+## data:  nviolation by
+## 	 task (phone, watch, speaker, texting) 
+## 	 stratified by id
+## chi-squared = 18.97, df = 3, p-value = 0.0002774
+```
+
+```r
+coin::quade_test(nviolation ~ task | id,
+                 data = BRLS21_T3)
+```
+
+```
+## 
+## 	Asymptotic Quade Test
+## 
+## data:  nviolation by
+## 	 task (phone, watch, speaker, texting) 
+## 	 stratified by id
+## chi-squared = 21.512, df = 3, p-value = 8.241e-05
+```
+
+.tiny[
+
+The repeated measures must use a similar response (e.g., Likert scale).
+]
+---
+
+# Pairwise differences
+
+Since there are overall differences, we can follow-up by looking at all pairwise differences using Wilcoxon rank-sum test
+
+
+```r
+# Transform to wide format - one line per id
+smartwatch &lt;- tidyr::pivot_wider(
+  data = BRLS21_T3,
+  names_from = task,
+  values_from = nviolation)
+# Wilcoxon signed-rank test
+coin::wilcoxsign_test(phone ~ watch,
+                      data = smartwatch)
+```
+
+.small[
+
+There are `\(\binom{4}{2}=6\)` pairwise comparisons, so we should adjust `\(p\)`-values for multiple testing using, e.g., Holm–Bonferroni.
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": false,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+---
+title: "Hypothesis testing"
+---
+
+```{r}
+#| label: slides-videos
+#| echo: false
+#| include: false
+source(here::here("R", "slide-things.R"))
+source(here::here("R", "youtube-playlist.R"))
+
+playlist_id <- ""
+
+slide_details <- tibble::tribble(
+  ~youtube_id,   ~title, ~slide, ~active,
+  "", "Introduction", "1", TRUE,
+  "", "Variability", "signal-vs-noise", FALSE,
+  "", "Hypothesis testing", "hypothesis-tests", FALSE
+)
+```
+
+
+## Content
+
+- Sampling variability
+- Hypothesis testing
+- Pairwise comparisons
+
+
+## Learning objectives
+
+At the end of the session, students should be capable of
+
+- understanding the mechanics behind generic hypothesis tests
+- interpreting the output of generic tests
+- correctly reporting the output of a testing procedure
+
+
+## Readings
+
+- {{< fa book >}}  Chapter 5 (*Foundations for inference*) of [Matthew Crump's course notes](https://www.crumplab.com/statistics/foundations-for-inference.html). These notes are non-technical, but do a good job at explaining the notion of sampling variability and chance. If you find them too basic, skip directly to the next item.
+- {{< fa book >}} Chapter 2 of the [Course notes](https://lbelzile.github.io/math80667a/02-hypothesis_testing.html)
+- {{< fa file >}}  [The permutation test by Jared Wilson](https://www.jwilber.me/permutationtest/)
+
+## Complementary readings
+
+- {{< fa book >}}  Chapter 2 of @Maxwell.Delaney.Kelley:2017
+- {{< fa book >}}  Chapter 3 of @Keppel/Wickens:2004.
+
+
+## Slides
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/02-slides")
+# slide_tabs(slide_details, "/slides/02-slides.html")
+```
+
+```{r show-slides-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(
+  url = "/slides/02-slides.html",
+  ratio = "16:9"
+)
+```
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of slide-specific commands.
+:::
+
+## Case study
+
+We will look at the way authors report the conclusion of their statistical tests with
+
+- @Rosen:1974
+- @Brucks.Levav:2022
+- @Liu.Rim.Min.Min:2023, Experiment 1
+
+## Code
+
+The following code reproduces the applications in the course slides and the case study
+
+- [R script](/content/MATH80667A-02-content.R)
+- [SPSS scripts](/content/MATH80667A-02-content-SPSS.zip)
+- [Python script](/content/MATH80667A-02-content.py) for the case study
+
+
+## References
